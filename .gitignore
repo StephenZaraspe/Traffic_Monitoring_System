@@ -1,0 +1,6 @@
+venv/
+datasets/*/images/
+runs/
+*.pt
+*.cache
+.vscode/
