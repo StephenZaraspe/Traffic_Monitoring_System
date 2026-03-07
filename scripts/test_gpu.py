@@ -22,7 +22,7 @@ def check_gpu():
     print(f"\nCUDA available: {cuda_available}")
     
     if cuda_available:
-        print(f"CUDA version: {torch.version.cuda if hasattr(torch.version, 'cuda') else 'Unknown'}")
+        print(f"CUDA version: {torch.version.cuda}")
         print(f"cuDNN version: {torch.backends.cudnn.version()}")
         
         # GPU details

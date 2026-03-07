@@ -1,6 +1,12 @@
-venv/
-datasets/*/images/
+# Ignore YOLOv8 training runs and heavy model weights
 runs/
 *.pt
-*.cache
-.vscode/
+
+# Ignore heavy datasets and raw videos
+datasets/
+*.mp4
+*.zip
+
+# Ignore Python virtual environments
+venv/
+__pycache__/

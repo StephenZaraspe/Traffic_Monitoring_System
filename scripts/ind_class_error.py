@@ -1,7 +1,7 @@
 import os
 
 # Your specific path
-base_path = r'C:\Users\ADMIN\Downloads\traffic_monitoring_system\datasets\roboflow_ph_vehicles'
+target_directory = r'C:\Users\ADMIN\Downloads\traffic_monitoring_system\datasets\roboflow_ph_vehicles\valid\labels'
 folders = ['train/labels', 'valid/labels', 'test/labels']
 
 for folder in folders:

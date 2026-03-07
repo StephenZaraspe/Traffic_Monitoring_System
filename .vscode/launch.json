@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Train YOLOv8",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/train_yolov8_full.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Evaluate Model",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/evaluate_model.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Tracking",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/track_with_ocsort.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+}

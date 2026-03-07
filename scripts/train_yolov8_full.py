@@ -27,7 +27,7 @@ def verify_environment():
         print(f"✓ CUDA: {torch.version.cuda}")
     
     # Check dataset
-    data_yaml = 'datasets/roboflow_ph_vehicles/data.yaml'
+    data_yaml = 'datasets/data.yaml'
     if not os.path.exists(data_yaml):
         print(f"\n✗ ERROR: {data_yaml} not found")
         print("Run: python scripts/prepare_dataset.py first")
@@ -59,7 +59,7 @@ def train_yolov8():
     # Training parameters
     results = model.train(
         # Data
-        data='datasets/roboflow_ph_vehicles/data.yaml',
+        data='datasets/data.yaml',
         
         # Training duration
         epochs=100,
@@ -82,23 +82,23 @@ def train_yolov8():
         save_period=10,  # Save every 10 epochs
         
         # Output
-        project='models/yolov8_full',
+        project='models/yolov8_baseline',
         name='run1',
-        exist_ok=True,
+        exist_ok=False,
         
         # Resume from checkpoint (if needed)
-        # resume=True,  # Uncomment to resume interrupted training
+        # resume=True, 
         
         # Augmentation (Roboflow already did augmentation)
         hsv_h=0.015,
         hsv_s=0.7,
         hsv_v=0.4,
         degrees=0.0,
-        translate=0.1,
-        scale=0.5,
+        translate=0.0,
+        scale=0.0,
         flipud=0.0,
         fliplr=0.5,
-        mosaic=1.0,
+        mosaic=0.0,
         mixup=0.0,
     )
     
