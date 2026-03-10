@@ -3,22 +3,22 @@ import os
 
 def extract_window_frames():
     print("="*60)
-    print("DATA DISTILLATION: TIME-WINDOW EXTRACTOR (MINUTE 20-22)")
+    print("DATA DISTILLATION: ROXAS DAYTIME (200 FRAMES)")
     print("="*60)
 
-    # 1. Update this to your exact video filename path!
-    VIDEO_PATH = 'datasets\mmda_footage4\MMDA_Footage4.mp4' 
-    OUTPUT_DIR = 'datasets/mmda_footage/extracted_frames_roxas_day_20m'
+    # 1. Updated perfectly to match your VS Code file explorer screenshot
+    VIDEO_PATH = 'datasets/mmda_footage/raw_videos/EastWoods_Daytime2.mp4' 
+    OUTPUT_DIR = 'datasets/mmda_footage/extracted_frames_Eastwoods_Daytime_batch2'
     
-    # 2. Set your specific time window and target frames
-    START_MINUTE = 20
-    END_MINUTE = 22
+    # 2. Extracting exactly 200 frames spread across a 10-minute window
+    # (Change END_MINUTE if your video is shorter than 10 minutes!)
+    START_MINUTE = 0
+    END_MINUTE = 10
     TARGET_FRAMES = 50
 
     # Check if video exists
     if not os.path.exists(VIDEO_PATH):
         print(f"✗ ERROR: Video not found at {VIDEO_PATH}")
-        print("  Fix: Right-click MMDA_Footage4.mp4 in VS Code and select 'Copy Relative Path'")
         return
 
     # Create output directory if it doesn't exist
@@ -34,21 +34,27 @@ def extract_window_frames():
     end_frame = END_MINUTE * 60 * fps
     frames_in_window = end_frame - start_frame
     
-    # Safety check to ensure the video is actually long enough
+    # Safety check
     if start_frame >= total_frames:
         print("✗ ERROR: Video is shorter than your start minute!")
         return
         
+    # Prevent the end_frame from exceeding the actual video length
+    if end_frame > total_frames:
+        end_frame = total_frames
+        frames_in_window = end_frame - start_frame
+        print("⚠ WARNING: Video is shorter than END_MINUTE. Adjusting to end of video.")
+
     print(f"\n✓ Video loaded successfully.")
     print(f"  FPS: {fps}")
     print(f"  Extracting exactly {TARGET_FRAMES} frames from Minute {START_MINUTE} to Minute {END_MINUTE}")
     
-    # 4. Fast-forward directly to the 20-minute mark
+    # 4. Fast-forward to the start time
     cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
     
-    # Calculate the mathematical jump for the 2-minute window
+    # Calculate the mathematical jump
     step_size = max(1, frames_in_window // TARGET_FRAMES)
-    print(f"\n✓ Extracting 1 frame every {step_size} frames within the window.")
+    print(f"\n✓ Extracting 1 frame every {step_size} frames.")
 
     current_frame = start_frame
     saved_count = 0
@@ -62,14 +68,11 @@ def extract_window_frames():
             
         # Only save the frame if it hits our calculated step size
         if (current_frame - start_frame) % step_size == 0:
-            # Filenames will look like: roxas_day_20m_001.jpg
-            filename = os.path.join(OUTPUT_DIR, f"roxas_day_20m_{saved_count:03d}.jpg")
-            
-            # Save as high-quality JPG
+            filename = os.path.join(OUTPUT_DIR, f"roxas_day_batch2_{saved_count:03d}.jpg")
             cv2.imwrite(filename, frame, [cv2.IMWRITE_JPEG_QUALITY, 100])
             saved_count += 1
             
-            if saved_count % 10 == 0:
+            if saved_count % 25 == 0:
                 print(f"  Progress: Saved {saved_count}/{TARGET_FRAMES} frames...")
                 
         current_frame += 1

@@ -1,0 +1,12 @@
+# 1. The 100-Canvas Balanced Distilled Set
+train: datasets/distilled_balanced_100_canvases/images
+
+# 2. The "Vault" Validation Set
+val: datasets/datasetsfinal_1000_frames/valid/images
+
+# Add this new line:
+test: datasets/datasetsfinal_1000_frames/test/images
+
+# 3. Classes
+nc: 7
+names: ['bus', 'cars', 'e-jeepney', 'jeepney', 'motorcycle', 'trike', 'trucks']

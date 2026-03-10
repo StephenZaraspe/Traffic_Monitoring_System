@@ -1,0 +1,6 @@
+path: datasets/distilled_v3_100_canvases
+train: images
+val: images
+
+nc: 7
+names: ['bus', 'cars', 'e-jeepney', 'jeepney', 'motorcycle', 'trike', 'trucks']

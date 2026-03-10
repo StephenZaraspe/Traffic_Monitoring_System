@@ -1,0 +1,9 @@
+# 1. The 50-Canvas Distilled Training Set
+train: datasets/distilled_50_canvases/images
+
+# 2. The "Vault" Validation Set
+val: datasets/datasetsfinal_1000_frames/valid/images
+
+# 3. Classes
+nc: 7
+names: ['bus', 'cars', 'e-jeepney', 'jeepney', 'motorcycle', 'trike', 'trucks']

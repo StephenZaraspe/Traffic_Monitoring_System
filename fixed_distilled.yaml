@@ -1,0 +1,6 @@
+train: datasets/distilled_fixed_100_canvases/images
+val: datasets/datasetsfinal_1000_frames/valid/images
+test: datasets/datasetsfinal_1000_frames/test/images
+
+nc: 7
+names: ['bus', 'cars', 'e-jeepney', 'jeepney', 'motorcycle', 'trike', 'trucks']

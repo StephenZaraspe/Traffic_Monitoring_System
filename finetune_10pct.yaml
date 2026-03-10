@@ -1,0 +1,12 @@
+names:
+- bus
+- cars
+- e-jeepney
+- jeepney
+- motorcycle
+- trike
+- trucks
+nc: 7
+test: datasets/datasetsfinal_1000_frames/test/images
+train: datasets/finetune_10pct/images
+val: datasets/datasetsfinal_1000_frames/valid/images

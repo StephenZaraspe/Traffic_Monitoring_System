@@ -1,0 +1,8 @@
+train: ... # (Leave your current train path here)
+val: datasets/datasetsfinal_1000_frames/valid/images
+
+# Add this new line:
+test: datasets/datasetsfinal_1000_frames/test/images
+
+nc: 7
+names: ['bus', 'cars', 'e-jeepney', 'jeepney', 'motorcycle', 'trike', 'trucks']
