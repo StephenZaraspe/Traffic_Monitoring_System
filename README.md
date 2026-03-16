@@ -140,6 +140,6 @@ If you use this project, please cite:
 ```
 TIP Manila — BS Computer Science Thesis 2025
 MMDA Traffic Intelligence System
-Authors: [Your full name + thesis group]
+Authors: [Stephen John A. Zaraspe]
 ```
 EOF
