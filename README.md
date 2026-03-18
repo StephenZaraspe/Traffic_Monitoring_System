@@ -53,7 +53,7 @@ Download `best.pt` from the link below and place it at:
 ```
 runs/detect/train_finetuned_10pct/weights/best.pt
 ```
-**Download:** [Google Drive link — add yours here]
+**Download:** [Google Drive link —](https://drive.google.com/file/d/1X3nqe3nZYerfSDWUBZaA80KBs9B0ZFFi/view?usp=sharing)
 
 ### 4. Run the backend
 ```bash
